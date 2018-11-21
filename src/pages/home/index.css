@@ -1,0 +1,16 @@
+.city {
+    display: inline-block;
+    width: 1.76rem;
+    color: white;
+    font-size: .22rem;
+    text-align: center;
+    line-height: .933333rem;
+}
+
+.text {
+    width: 78%;
+    background: #36db84;
+    border-radius: .45rem;
+    height: .8rem;
+    border: none;
+}
