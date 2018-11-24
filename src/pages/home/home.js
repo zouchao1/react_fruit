@@ -9,22 +9,10 @@ import Mine from '../mine'
 import uuid from 'uuid'
 import './home.css'
 class Footer extends Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            selectedTd: 'home',
-            tabs: [
-                { id: uuid(), title: '菜谱大全', selected: 'home', component: '123' },
-                { id: uuid(), title: '菜谱大全', selected: 'kinds', component: '123' },
-                { id: uuid(), title: '菜谱大全', selected: 'car', component: '123' },
-                { id: uuid(), title: '菜谱大全', selected: 'mine', component: '123' },
-            ]
-        }
-
-    }
+   
     render() {
         return (
-            <div className="home container">
+            <div className="home ">
 
 
                 <HomeFooter>

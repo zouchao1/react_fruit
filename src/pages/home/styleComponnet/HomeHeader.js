@@ -5,6 +5,7 @@ top:0;
 left:0;
 width:100%;
 display:flex;
+z-index:10;
 justify-content: space-between;
 align-content: center;
 height: 1.013333rem;
