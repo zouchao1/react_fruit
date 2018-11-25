@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from 'react'
-import { Route, Link, NavLink, Switch, Redirect } from 'react-router-dom'
+import { Route, Link, NavLink, Switch, Redirect, withRouter } from 'react-router-dom'
 import { HomeHeader } from './styleComponnet/HomeHeader'
 import uuid from 'uuid'
 import './index.css'
@@ -15,6 +15,7 @@ import BScroll from 'better-scroll'
 import axios from 'axios'
 import AllKinds from './styleComponnet/AllKinds'
 import HomeDetail from './styleComponnet/HomeDetail'
+
 class Home extends Component {
     constructor(props) {
         super(props)
@@ -111,7 +112,7 @@ class Home extends Component {
                 <div className="scroll">
                     <HomeSwaper swaper={this.props.main.list.templateComponentList} />
                     <img src={swaperImg} />
-                    <GridExample graid={this.props.main.list.templateComponentList[0].navComponentList} />
+                    <OwnGraidExample graid={this.props.main.list.templateComponentList[0].navComponentList} myClick={this.props.hanleIshow} />
                     <NewsDiv>
                         <img src={NewImg} style={{ width: '1.813333rem', height: '.346667rem', margin: ' .106667rem' }} />
                         <News news={this.props.main.list.templateComponentList[0].fastReportsList} />
@@ -126,6 +127,7 @@ class Home extends Component {
 
 
                     {this.state.detailList.length > 0 ? <HomeDetail detaList={this.state.detailList} /> : ''}
+
 
                 </div>
             )
@@ -153,32 +155,49 @@ class Home extends Component {
 }
 
 
+const OwnGraidExample = props => {
+    let Item = withRouter(GridExample)
+    return (<Item {...props} />)
+}
 
+class GridExample extends Component {
 
-const GridExample = (props) => {
-    const data = props.graid.map((_val, i) => {
-        return ({
-            icon: _val.pictureUrl,
-            text: _val.navName,
-        })
-    });
+    constructor(props) {
+        super(props)
+        this.handleClick = this.handleClick.bind(this)
+    }
+    handleClick(hrefValue) {
 
-
-    return (
-        <div >
-            <Grid data={data} hasLine={false} className="not-square-grid" renderItem={
-                dataItem => (
-                    <div >
-                        <img src={dataItem.icon} style={{ width: '48px', height: '48px' }} alt="" />
-                        <div style={{ color: 'rgb(51, 51, 51)', fontSize: '12px' }}>
-                            <span>{dataItem.text}</span>
+        this.props.history.push({ pathname: '/product', search: '?keyWord=' + hrefValue })
+        this.props.myClick();
+    }
+    render() {
+        const data = this.props.graid.map((_val, i) => {
+            return ({
+                icon: _val.pictureUrl,
+                text: _val.navName,
+                hrefValue: _val.hrefValue
+            })
+        });
+        return (
+            <div >
+                <Grid data={data} hasLine={false} className="not-square-grid" renderItem={
+                    dataItem => (
+                        <div onClick={() => this.handleClick(dataItem.hrefValue)}>
+                            <img src={dataItem.icon} style={{ width: '48px', height: '48px' }} alt="" />
+                            <div style={{ color: 'rgb(51, 51, 51)', fontSize: '12px' }}>
+                                <span>{dataItem.text}</span>
+                            </div>
                         </div>
-                    </div>
-                )
-            } />
+                    )
+                } />
 
-        </div >
-    )
+            </div >
+        )
+    }
+
+
+
 };
 
 

@@ -3,7 +3,7 @@ export const HomeFooter = styled.ul`
 position: fixed;
 bottom:0;
 left:0;
-width:100%;
+width:375px !important;
 display:flex;
 z-index:99;
 justify-content: space-between;

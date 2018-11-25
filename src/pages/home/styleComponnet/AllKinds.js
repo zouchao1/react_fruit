@@ -29,7 +29,8 @@ class AllKinds extends Component {
 class DicLi extends Component {
     render() {
         const params = {
-            slidesPerView: 3,
+
+            slidesPerGroup: 3
 
         }
         return (
