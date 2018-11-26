@@ -141,6 +141,7 @@ class Home extends Component {
             <div className="box">
                 <HomeHeader>
                     <span className="city">北京</span>
+                    <i className="icon"></i>
                     <input type="text" className="text" />
                 </HomeHeader>
                 <main>

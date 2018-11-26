@@ -16,7 +16,7 @@
     justify-content: space-between;
     align-content: center;
     background: #fff;
-    margin-top: .266667rem;
+    margin-top: .1rem !important;
 }
 
 .proitem img {
@@ -66,4 +66,9 @@
 .produc_scroll,
 .product_box {
     height: 100% !important;
+}
+
+.headerActive {
+    color: #45b575 !important;
+    border-bottom: .053333rem solid #45b575;
 }

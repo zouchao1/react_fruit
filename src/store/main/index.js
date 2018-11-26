@@ -27,6 +27,10 @@ const reducer = (
         case types.GET_PRODUCT + '_FULFILLED':
             new_state.isLoading = false;
             new_state.productList = action.payload.data.Data; break;
+
+        case types.GET_KINDS_PRODUCTS + '_FULFILLED':
+            new_state.productKindsList = action.payload.data.Data; break;
+
         default: return previous_state;
     }
     return new_state

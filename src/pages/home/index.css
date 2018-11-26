@@ -135,3 +135,14 @@ main {
     font-weight: bold;
     color: #fb3d3d;
 }
+
+.box .icon {
+    background: url(../../assets/images/search.png)no-repeat center center;
+    width: .32rem;
+    height: .32rem;
+    position: absolute;
+    left: 2.366667rem;
+    top: .366667rem;
+    z-index: 9;
+    background-size: 100% 100%;
+}

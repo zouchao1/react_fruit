@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
 import { Route, Link, NavLink, Switch, Redirect } from 'react-router-dom'
+import { KindsHeader, SetionDiv } from './styleComponnet'
 
-import uuid from 'uuid'
-
+import SectionKinds from './SetionKinds'
+import './index.css'
+import serchImg from '../../assets/images/search.png'
 class Kinds extends Component {
     constructor(props) {
         super(props)
@@ -11,10 +13,16 @@ class Kinds extends Component {
     }
     render() {
         return (
-            <div>
-22222222
+            <div className="Kind_box">
 
-
+                <KindsHeader>
+                    <i className="icon"></i>
+                    <input type='text' placeholder="清除如商品名称" className="KindText" />
+                    <span className="txt">搜索</span>
+                </KindsHeader>
+                <SetionDiv>
+                    <SectionKinds />
+                </SetionDiv>
             </div>
         )
     }
