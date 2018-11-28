@@ -7,13 +7,13 @@ function resolve(url) {
 }
 module.exports = function override(config, env) {
     config = injectBabelPlugin(['import', { libraryName: 'antd-mobile', style: 'css' }], config);
-
+    config = injectBabelPlugin(['@babel/plugin-proposal-decorators', { "legacy": true }], config);
     // 配置别名
     config.resolve.alias = {
         ...config.resolve.alias,
         '@': resolve('')
     }
-  
+
 
     return config;
 };

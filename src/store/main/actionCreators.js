@@ -2,6 +2,35 @@
 import * as types from './actionTypes'
 import axios from 'axios'
 export default {
+
+    getDetail(commodityCode) {
+        return {
+            type: types.GET_DETAIL,
+            payload: axios({
+                url: 'https://b2capigateway.yiguo.com/api/commodityapi/Commodity/GetCommodityInfo',
+                method: 'post',
+                data: {
+                    head: {
+                        CityCode: "2",
+                        CityId: "eabbe02f-59e0-46e6-90e7-cd8a89dbb98f",
+                        DeviceId: "b3d726011880213a1e68af12c0746221",
+                        DistrictId: "c1153b9b-b21e-4761-9daf-99735a87f8d8",
+                        LoginToken: "",
+                        MobileOS: "Mozilla/5.0 (iPhone; CPU iPhone OS 11_0 like Mac OS X) AppleWebKit/604.1.38 (KHTML, like Gecko) Version/11.0 Mobile/15A372 Safari/604.1",
+                        Token: ""
+                    },
+                    body: {
+                        CommodityCode: commodityCode,
+                        CommodityId: ""
+                    }
+                },
+                headers: {
+                    'Content-Type': 'application/json;charset=UTF-8',
+                    'appName': '3000025'
+                }
+            })
+        }
+    },
     getListAsync(pagenum = 0) {
         return {
             type: types.GET_DATA,
@@ -29,7 +58,7 @@ export default {
     getProductList(keywords) {
 
         var fruit = ''
-        if (keywords == "水果" || keywords == "原箱") {
+        if (keywords === "水果" || keywords === "原箱") {
             fruit = keywords
         }
         if (keywords.startsWith('http')) {

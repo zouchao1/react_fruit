@@ -7,5 +7,10 @@
 .glyphicon {
     font-size: .566667rem;
     margin-bottom: .126667rem;
+}
 
+a:hover,
+focus {
+    color: #fff;
+    text-decoration: none;
 }

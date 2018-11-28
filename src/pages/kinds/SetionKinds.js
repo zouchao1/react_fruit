@@ -29,9 +29,9 @@ class Kinds extends Component {
             <Fragment >
                 <ul className="kinds_list">
                     {this.props.main.productKindsList ? this.props.main.productKindsList.CategoryList.map((item) => {
-                        return <li className={this.state.flag == item.CategoryName ? "productlist" : ""} key={item.CategoryId} onClick={() => { this.handleProduct(item.CategoryName) }}>{item.CategoryName}
+                        return <li className={this.state.flag === item.CategoryName ? "productlist" : ""} key={item.CategoryId} onClick={() => { this.handleProduct(item.CategoryName) }}>{item.CategoryName}
                             {
-                                this.state.flag == item.CategoryName ? <ul className="kinds_list_child">
+                                this.state.flag === item.CategoryName ? <ul className="kinds_list_child">
 
                                     <KindsLi products={item.Childs} CategoryName={this.state.flag} />
                                 </ul> : ''

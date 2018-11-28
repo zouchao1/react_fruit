@@ -7,6 +7,7 @@ import swaperImg from '../../assets/images/fruit.gif'
 import HomeSwaper from './styleComponnet/HomeSwaper'
 import { Grid } from 'antd-mobile';
 import connect from '../../connect'
+
 import News from './styleComponnet/News'
 import { NewsDiv } from '../../component/new.js'
 import NewImg from '../../assets/images/news.png'
@@ -16,6 +17,8 @@ import axios from 'axios'
 import AllKinds from './styleComponnet/AllKinds'
 import HomeDetail from './styleComponnet/HomeDetail'
 
+import { util_zepoto_componentWillUnmount } from '../../utils'
+@util_zepoto_componentWillUnmount
 class Home extends Component {
     constructor(props) {
         super(props)
@@ -72,11 +75,6 @@ class Home extends Component {
                     this.scroll.finishPullUp(); // 解决拉动刷新
                     this.scroll.refresh();
 
-
-
-
-
-
                 }
 
             }.bind(this)
@@ -85,7 +83,10 @@ class Home extends Component {
 
     }
     async componentDidMount() {
+
+
         await this.props.main_actions.getListAsync(this.state.num)
+
         this.scroll = new BScroll('main', {
             probeType: 2,
             pullUpLoad: {
@@ -104,7 +105,10 @@ class Home extends Component {
 
     }
 
+    componentWillUnmount() {
 
+        window.location.reload()
+    }
 
     getCheckFinsh() {
         if (this.props.main.list) {

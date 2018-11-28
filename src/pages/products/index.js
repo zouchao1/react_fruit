@@ -19,6 +19,7 @@ class Products extends Component {
         this.isLoading = this.isLoading.bind(this)
 
     }
+
     async componentDidMount() {
         await this.props.main_actions.getProductList(this.state.keywords)
         this.scroll = new BScroll('.produc_scroll', {
